@@ -1,0 +1,21 @@
+<header class="nav-wrapper">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg">  
+            <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item"><a href="{{url_for('index')}}" class="nav-link {% if index %} active {% endif %}"><strong>Home</strong></a></li>
+                <li class="nav-item"><a href="{{url_for('courses')}}" class="nav-link {% if courses %} active {% endif %}"><strong>Courses</strong></a></li>
+                <li class="nav-item"><a href="{{url_for('enrollment')}}" class="nav-link {% if enrollment %} active {% endif %}"><strong>My Enrollment</strong></a></li>
+            </ul>
+            <div class = btn-wrapper>
+                {% if not session['username'] %}
+                <button type="button" class="btn btn-outline-dark me-2"><a href="{{url_for('login')}}"> <strong> Login </strong> </button></a>
+                {% else %}
+                <button type="button" class="btn btn-outline-dark me-2"><a href="{{url_for('logout')}}"> <strong> Logout </strong> </button></a>
+                {% endif %}
+                {% if not session['username'] %}
+                <button type="button" class="btn btn-warning"><a href="{{url_for('register')}}"> <strong> Register </strong> </button></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
